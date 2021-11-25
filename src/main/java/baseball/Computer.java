@@ -2,14 +2,14 @@ package baseball;
 
 public class Computer {
 
-	Number number;
+	Number numbers;
 
 	public void generate() {
-		number = Number.generateRandomNumbers();
+		numbers = Number.generateRandomNumbers();
 	}
 
 	public Number getNumber() {
-		return number;
+		return numbers;
 	}
 
 }
