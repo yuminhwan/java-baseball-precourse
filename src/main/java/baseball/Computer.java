@@ -6,7 +6,7 @@ import java.util.Map;
 public class Computer {
 
 	private Number computerNumbers;
-	Map<String, Integer> result;
+	private Map<String, Integer> result;
 
 	public void generate() {
 		computerNumbers = Number.generateRandomNumbers();
@@ -37,7 +37,7 @@ public class Computer {
 		int ball = result.get("BALL");
 
 		if ( strike != 0 && ball != 0 ) {
-			return strike + "스트라이크" + ball + "볼";
+			return ball + "볼 " + strike + "스트라이크 ";
 		}
 
 		if (strike != 0) {
