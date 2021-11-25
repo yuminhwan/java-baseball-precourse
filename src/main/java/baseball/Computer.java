@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Computer {
 
-	Number computerNumbers;
+	private Number computerNumbers;
 	Map<String, Integer> result;
 
 	public void generate() {
@@ -18,17 +18,37 @@ public class Computer {
 		int ball = 0;
 
 		for (int i = 0; i < 3; i++) {
-			if ( computerNumbers.isSameNumber(playerNumbers.getNumByIdx(i), i) ) {
+			if ( computerNumbers.isStrike(playerNumbers.getNumByIdx(i), i) ) {
 				strike++;
 				continue;
 			}
 
-			if ( computerNumbers.isContainNumber(playerNumbers.getNumByIdx(i)) ) {
+			if ( computerNumbers.isBall(playerNumbers.getNumByIdx(i)) ) {
 				ball++;
 			}
 		}
 
 		saveResult(strike,ball);
+	}
+
+	public String printResult() {
+
+		int strike = result.get("STRIKE");
+		int ball = result.get("BALL");
+
+		if ( strike != 0 && ball != 0 ) {
+			return strike + "스트라이크" + ball + "볼";
+		}
+
+		if (strike != 0) {
+			return strike + "스트라이크";
+		}
+
+		if (ball != 0) {
+			return ball + "볼";
+		}
+
+		return "낫싱";
 	}
 
 	private void saveResult (int strike, int ball) {
