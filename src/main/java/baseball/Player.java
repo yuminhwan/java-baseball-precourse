@@ -13,6 +13,7 @@ public class Player {
 
 	public void inputNumbers() {
 		String inputNumbers = Console.readLine();
+		numbers = Number.generatePlayerNumbers(inputNumbers);
 	}
 
 	public Number getNumbers() {
