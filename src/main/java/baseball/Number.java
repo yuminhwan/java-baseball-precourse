@@ -32,6 +32,18 @@ public class Number {
 		return new Number(playerNumbers);
 	}
 
+	public int getNumByIdx(int idx) {
+		return numbers.get(idx);
+	}
+
+	public boolean isContainNumber (int number) {
+		return numbers.contains(number);
+	}
+
+	public boolean isSameNumber ( int number, int idx ) {
+		return numbers.get(idx).equals(number);
+	}
+
 	private static ArrayList<Integer> convertStringToList(String inputNumbers) {
 		ArrayList<Integer> playerNumbers = new ArrayList<>();
 		String[] splitNumbers = inputNumbers.split("");
@@ -59,5 +71,7 @@ public class Number {
 			}
 		}
 	}
+
+
 
 }
