@@ -36,11 +36,11 @@ public class Number {
 		return numbers.get(idx);
 	}
 
-	public boolean isContainNumber (int number) {
+	public boolean isBall (int number) {
 		return numbers.contains(number);
 	}
 
-	public boolean isSameNumber ( int number, int idx ) {
+	public boolean isStrike ( int number, int idx ) {
 		return numbers.get(idx).equals(number);
 	}
 
