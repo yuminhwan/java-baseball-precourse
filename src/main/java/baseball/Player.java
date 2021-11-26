@@ -1,10 +1,5 @@
 package baseball;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-
 import camp.nextstep.edu.missionutils.Console;
 
 public class Player {
@@ -16,8 +11,12 @@ public class Player {
 		numbers = Number.generatePlayerNumbers(inputNumbers);
 	}
 
+	public int inputCommand() {
+		String inputNumber = Console.readLine();
+		return Integer.parseInt(inputNumber);
+	}
+
 	public Number getNumbers() {
 		return numbers;
 	}
-
 }
