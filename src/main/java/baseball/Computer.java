@@ -51,6 +51,10 @@ public class Computer {
 		return "낫싱";
 	}
 
+	public boolean isCorrect() {
+		return result.get("STRIKE") == 3;
+	}
+
 	private void saveResult (int strike, int ball) {
 		result = new HashMap<>();
 		result.put("STRIKE", strike);
