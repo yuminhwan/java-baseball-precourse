@@ -32,6 +32,12 @@ public class Number {
 		return new Number(playerNumbers);
 	}
 
+	public static void validateCommand( String command ) {
+		if ( !command.equals("1") && !command.equals("2")  ) {
+			throw new IllegalArgumentException();
+		}
+	}
+
 	public int getNumByIdx(int idx) {
 		return numbers.get(idx);
 	}

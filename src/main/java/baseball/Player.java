@@ -13,6 +13,7 @@ public class Player {
 
 	public int inputCommand() {
 		String inputNumber = Console.readLine();
+		Number.validateCommand(inputNumber);
 		return Integer.parseInt(inputNumber);
 	}
 
