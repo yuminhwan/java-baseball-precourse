@@ -5,25 +5,25 @@ import java.util.Map;
 
 public class Computer {
 
-	private Number computerNumbers;
+	private BaseBallNumber computerNumber;
 	private Map<String, Integer> result;
 
 	public void generate() {
-		computerNumbers = Number.generateRandomNumbers();
+		computerNumber = BaseBallNumber.generateAnswerNumber();
 	}
 
-	public void calculateResultCount(Number playerNumbers) {
+	public void calculateResultCount(BaseBallNumber playerNumbers) {
 
 		int strike = 0;
 		int ball = 0;
 
 		for (int i = 0; i < 3; i++) {
-			if ( computerNumbers.isStrike(playerNumbers.getNumByIdx(i), i) ) {
+			if ( computerNumber.isStrike(playerNumbers.getNumByIdx(i), i) ) {
 				strike++;
 				continue;
 			}
 
-			if ( computerNumbers.isBall(playerNumbers.getNumByIdx(i)) ) {
+			if ( computerNumber.isBall(playerNumbers.getNumByIdx(i)) ) {
 				ball++;
 			}
 		}

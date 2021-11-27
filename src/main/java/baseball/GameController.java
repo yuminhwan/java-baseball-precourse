@@ -19,8 +19,8 @@ public class GameController {
 		computer.generate();
 		do {
 			System.out.print("숫자를 입력해주세요 : ");
-			player.inputNumbers();
-			computer.calculateResultCount(player.getNumbers());
+			player.inputNumber();
+			computer.calculateResultCount(player.getPlayerNumber());
 			System.out.println(computer.printResult());
 		} while ( !computer.isCorrect() );
 	}
