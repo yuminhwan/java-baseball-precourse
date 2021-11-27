@@ -18,12 +18,12 @@ public class Computer {
 		int ball = 0;
 
 		for (int i = 0; i < 3; i++) {
-			if ( computerNumber.isStrike(playerNumbers.getNthDigit(i), i) ) {
+			if ( computerNumber.hasNumber(playerNumbers.getNthDigit(i), i) ) {
 				strike++;
 				continue;
 			}
 
-			if ( computerNumber.isBall(playerNumbers.getNthDigit(i)) ) {
+			if ( computerNumber.containsNumber(playerNumbers.getNthDigit(i)) ) {
 				ball++;
 			}
 		}

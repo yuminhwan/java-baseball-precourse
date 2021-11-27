@@ -44,12 +44,12 @@ public class BaseBallNumber {
 		return baseballNumber.get(idx);
 	}
 
-	public boolean isBall (int number) {
+	public boolean containsNumber(int number) {
 		return baseballNumber.contains(number);
 	}
 
-	public boolean isStrike ( int number, int idx ) {
-		return baseballNumber.get(idx).equals(number);
+	public boolean hasNumber( int number, int idx ) {
+		return baseballNumber.get(idx) == number;
 	}
 
 	private static ArrayList<Integer> convertStringToInt( String inputNumber ) {
