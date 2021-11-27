@@ -40,7 +40,7 @@ public class BaseBallNumber {
 		}
 	}
 
-	public int getNumByIdx(int idx) {
+	public int getNthDigit(int idx) {
 		return baseballNumber.get(idx);
 	}
 
