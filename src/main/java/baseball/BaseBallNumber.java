@@ -16,7 +16,7 @@ public class BaseBallNumber {
 		this.baseballNumber = baseballNumber;
 	}
 
-	public static BaseBallNumber generateAnswerNumber() {
+	public static BaseBallNumber generateComputerNumber() {
 		ArrayList<Integer> answerNumber = new ArrayList<>();
 
 		while ( answerNumber.size() < NUMBER_LENGTH ) {
@@ -34,7 +34,7 @@ public class BaseBallNumber {
 		return new BaseBallNumber( playerNumber );
 	}
 
-	public int getNthDigit(int idx) {
+	public int getNthNumber(int idx) {
 		return baseballNumber.get(idx);
 	}
 

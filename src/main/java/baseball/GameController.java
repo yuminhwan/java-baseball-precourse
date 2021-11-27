@@ -27,13 +27,13 @@ public class GameController {
 		do {
 			System.out.print("숫자를 입력해주세요 : ");
 			player.inputNumber();
-			referee.judgeResult(player.getPlayerNumber());
-			System.out.println(referee.getResult());
+			referee.judgeResult( player.getPlayerNumber() );
+			System.out.println( referee.getResult() );
 		} while ( !referee.isAnswer() );
 	}
 
 	private void readyForGame() {
-		computer.generate();
+		computer.generateComputerNumber();
 		referee.saveComputerNumber(computer.getComputerNumber());
 	}
 
@@ -42,11 +42,11 @@ public class GameController {
 		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 		String inputCommand = Console.readLine();
 		validateCommand(inputCommand);
-		return inputCommand.equals(String.valueOf(RESTART));
+		return inputCommand.equals( String.valueOf(RESTART) );
 	}
 
 	private void validateCommand( String command ) {
-		if ( !command.equals(String.valueOf(RESTART)) && !command.equals(String.valueOf(END_GAME)) ) {
+		if ( !command.equals( String.valueOf(RESTART) ) && !command.equals( String.valueOf(END_GAME) ) ) {
 			throw new IllegalArgumentException();
 		}
 	}

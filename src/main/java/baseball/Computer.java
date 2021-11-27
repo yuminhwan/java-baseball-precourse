@@ -4,8 +4,8 @@ public class Computer {
 
 	private BaseBallNumber computerNumber;
 
-	public void generate() {
-		computerNumber = BaseBallNumber.generateAnswerNumber();
+	public void generateComputerNumber() {
+		computerNumber = BaseBallNumber.generateComputerNumber();
 	}
 
 	public BaseBallNumber getComputerNumber() {

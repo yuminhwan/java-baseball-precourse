@@ -60,11 +60,11 @@ public class Referee {
 	}
 
 	private boolean isStrike(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.hasNumber(playerNumber.getNthDigit(idx), idx);
+		return computerNumber.hasNumber(playerNumber.getNthNumber(idx), idx);
 	}
 
 	private boolean isBall(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.containsNumber(playerNumber.getNthDigit(idx));
+		return computerNumber.containsNumber(playerNumber.getNthNumber(idx));
 	}
 
 	private boolean isNothing() {
