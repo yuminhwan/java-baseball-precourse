@@ -34,12 +34,6 @@ public class BaseBallNumber {
 		return new BaseBallNumber( playerNumber );
 	}
 
-	public static void validateCommand( String command ) {
-		if ( !command.equals("1") && !command.equals("2")  ) {
-			throw new IllegalArgumentException();
-		}
-	}
-
 	public int getNthDigit(int idx) {
 		return baseballNumber.get(idx);
 	}

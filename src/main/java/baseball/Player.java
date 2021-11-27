@@ -11,12 +11,6 @@ public class Player {
 		playerNumber = BaseBallNumber.generatePlayerNumber(inputNumber);
 	}
 
-	public int inputCommand() {
-		String inputNumber = Console.readLine();
-		BaseBallNumber.validateCommand(inputNumber);
-		return Integer.parseInt(inputNumber);
-	}
-
 	public BaseBallNumber getPlayerNumber() {
 		return playerNumber;
 	}

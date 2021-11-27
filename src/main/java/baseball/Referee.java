@@ -11,7 +11,7 @@ public class Referee {
 	private int strike;
 	private int ball;
 
-	public void readyForGame( BaseBallNumber computerNumber ) {
+	public void saveComputerNumber( BaseBallNumber computerNumber ) {
 		this.computerNumber = computerNumber;
 	}
 
