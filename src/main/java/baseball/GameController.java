@@ -3,10 +3,12 @@ package baseball;
 public class GameController {
 	private final Player player;
 	private final Computer computer;
+	private final Referee referee;
 
 	public GameController() {
 		player = new Player();
 		computer = new Computer();
+		referee = new Referee();
 	}
 
 	public void run() {
@@ -17,12 +19,13 @@ public class GameController {
 
 	private void startGame() {
 		computer.generate();
+		referee.readyForGame(computer.getComputerNumber());
 		do {
 			System.out.print("숫자를 입력해주세요 : ");
 			player.inputNumber();
-			computer.calculateResultCount(player.getPlayerNumber());
-			System.out.println(computer.printResult());
-		} while ( !computer.isCorrect() );
+			referee.judgeResult(player.getPlayerNumber());
+			System.out.println(referee.getResult());
+		} while ( !referee.isAnswer() );
 	}
 
 	private boolean finishGame() {

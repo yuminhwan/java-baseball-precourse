@@ -19,7 +19,7 @@ public class BaseBallNumber {
 	public static BaseBallNumber generateAnswerNumber() {
 		ArrayList<Integer> answerNumber = new ArrayList<>();
 
-		while (answerNumber.size() < NUMBER_LENGTH) {
+		while ( answerNumber.size() < NUMBER_LENGTH ) {
 			int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
 			if ( !answerNumber.contains(randomNumber) ) {
 				answerNumber.add(randomNumber);
@@ -70,7 +70,7 @@ public class BaseBallNumber {
 
 		for( int i = 0; i<inputNumber.length(); i++) {
 			char number = inputNumber.charAt(i);
-			if ( number < (char)MIN_NUMBER || number > (char)MAX_NUMBER ) {
+			if ( number < (char) ( MIN_NUMBER + '0' ) || number > ( MAX_NUMBER + '0' ) ) {
 				throw new IllegalArgumentException();
 			}
 
