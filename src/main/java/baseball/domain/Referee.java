@@ -43,11 +43,7 @@ public class Referee {
 		return computerNumber.containsNumber(playerNumber.getNthNumber(idx));
 	}
 
-	public void printResult() {
-		System.out.println( getResult() );
-	}
-
-	private String getResult() {
+	public String getResult() {
 		if ( isNothing() ) {
 			return NOTHING;
 		}

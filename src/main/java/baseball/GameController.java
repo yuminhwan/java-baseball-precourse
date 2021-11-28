@@ -38,7 +38,7 @@ public class GameController {
 		do {
 			inputPlayerNumber();
 			referee.judgeResult( player.getPlayerNumber() );
-			referee.printResult();
+			System.out.println( referee.getResult() );
 		} while ( !referee.isAnswer() );
 	}
 
