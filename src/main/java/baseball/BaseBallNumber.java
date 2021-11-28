@@ -62,8 +62,8 @@ public class BaseBallNumber {
 			throw new IllegalArgumentException();
 		}
 
-		for( int i = 0; i<inputNumber.length(); i++) {
-			char number = inputNumber.charAt(i);
+		for( int idx = 0; idx<NUMBER_LENGTH; idx++) {
+			char number = inputNumber.charAt(idx);
 			if ( number < (char) ( MIN_NUMBER + '0' ) || number > ( MAX_NUMBER + '0' ) ) {
 				throw new IllegalArgumentException();
 			}

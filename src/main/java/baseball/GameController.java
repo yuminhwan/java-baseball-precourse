@@ -23,6 +23,11 @@ public class GameController {
 		} while (finishGame());
 	}
 
+	private void readyForGame() {
+		computer.generateComputerNumber();
+		referee.saveComputerNumber(computer.getComputerNumber());
+	}
+
 	private void startGame() {
 		do {
 			System.out.print("숫자를 입력해주세요 : ");
@@ -30,11 +35,6 @@ public class GameController {
 			referee.judgeResult( player.getPlayerNumber() );
 			System.out.println( referee.getResult() );
 		} while ( !referee.isAnswer() );
-	}
-
-	private void readyForGame() {
-		computer.generateComputerNumber();
-		referee.saveComputerNumber(computer.getComputerNumber());
 	}
 
 	private boolean finishGame() {

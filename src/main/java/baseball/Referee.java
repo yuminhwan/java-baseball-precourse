@@ -49,11 +49,11 @@ public class Referee {
 	private String ballAndStrike() {
 
 		if ( isOnlyStrike() ) {
-			return strike + "스트라이크";
+			return strike + STRIKE;
 		}
 
 		if ( isOnlyBall() ) {
-			return ball + "볼";
+			return ball + BALL;
 		}
 
 		return ball + BALL + " " + strike + STRIKE;
@@ -72,10 +72,10 @@ public class Referee {
 	}
 
 	private boolean isOnlyBall() {
-		return strike == 0;
+		return strike == INITIAL_VALUE;
 	}
 
 	private boolean isOnlyStrike() {
-		return ball == 0;
+		return ball == INITIAL_VALUE;
 	}
 }
