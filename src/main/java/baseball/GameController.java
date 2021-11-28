@@ -32,7 +32,7 @@ public class GameController {
 		do {
 			inputPlayerNumber();
 			referee.judgeResult( player.getPlayerNumber() );
-			System.out.println( referee.getResult() );
+			referee.printResult();
 		} while ( !referee.isAnswer() );
 	}
 

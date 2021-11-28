@@ -27,7 +27,11 @@ public class Referee {
 		}
 	}
 
-	public String getResult() {
+	public void printResult() {
+		System.out.println( getResult() );
+	}
+
+	private String getResult() {
 		if ( isNothing() ) {
 			return NOTHING;
 		}
