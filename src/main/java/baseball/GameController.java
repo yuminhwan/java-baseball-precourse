@@ -1,6 +1,10 @@
 package baseball;
 
-import static baseball.ConstValue.*;
+import static baseball.constant.ConstValue.*;
+
+import baseball.domain.Computer;
+import baseball.domain.Player;
+import baseball.domain.Referee;
 
 import camp.nextstep.edu.missionutils.Console;
 

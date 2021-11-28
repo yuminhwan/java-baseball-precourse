@@ -1,6 +1,6 @@
-package baseball;
+package baseball.domain;
 
-import static baseball.ConstValue.*;
+import static baseball.constant.ConstValue.*;
 
 public class Referee {
 
@@ -39,7 +39,7 @@ public class Referee {
 	}
 
 	public boolean isAnswer() {
-		return strike == 3;
+		return strike == MAX_COUNT;
 	}
 
 	private void initBallAndStrike() {

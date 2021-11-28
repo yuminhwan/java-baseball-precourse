@@ -1,9 +1,9 @@
-package baseball;
+package baseball.domain;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import static baseball.ConstValue.*;
+import static baseball.constant.ConstValue.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
