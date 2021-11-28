@@ -1,8 +1,11 @@
 package baseball.domain;
 
-import static baseball.constant.ConstValue.*;
-
 public class Referee {
+	public static final int INITIAL_VALUE = 0;
+	public static final int ANSWER_COUNT = 3;
+	public static final String BALL = "볼";
+	public static final String STRIKE = "스트라이크";
+	public static final String NOTHING = "낫싱";
 
 	private BaseBallNumber computerNumber;
 	private int strike;
@@ -15,7 +18,7 @@ public class Referee {
 	public void judgeResult( BaseBallNumber playerNumber ) {
 		initBallAndStrike();
 
-		for ( int idx = 0; idx < NUMBER_LENGTH; idx++ ) {
+		for ( int idx = 0; idx < playerNumber.size(); idx++ ) {
 			if ( isStrike(playerNumber, idx) ) {
 				strike++;
 				continue;
@@ -25,6 +28,19 @@ public class Referee {
 				ball++;
 			}
 		}
+	}
+
+	private void initBallAndStrike() {
+		strike = INITIAL_VALUE;
+		ball = INITIAL_VALUE;
+	}
+
+	private boolean isStrike(BaseBallNumber playerNumber, int idx) {
+		return computerNumber.hasNumber(playerNumber.getNthNumber(idx), idx);
+	}
+
+	private boolean isBall(BaseBallNumber playerNumber, int idx) {
+		return computerNumber.containsNumber(playerNumber.getNthNumber(idx));
 	}
 
 	public void printResult() {
@@ -38,13 +54,8 @@ public class Referee {
 		return ballAndStrike();
 	}
 
-	public boolean isAnswer() {
-		return strike == ANSWER_COUNT;
-	}
-
-	private void initBallAndStrike() {
-		strike = INITIAL_VALUE;
-		ball = INITIAL_VALUE;
+	private boolean isNothing() {
+		return strike + ball == INITIAL_VALUE;
 	}
 
 	private String ballAndStrike() {
@@ -60,23 +71,15 @@ public class Referee {
 		return ball + BALL + " " + strike + STRIKE;
 	}
 
-	private boolean isStrike(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.hasNumber(playerNumber.getNthNumber(idx), idx);
-	}
-
-	private boolean isBall(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.containsNumber(playerNumber.getNthNumber(idx));
-	}
-
-	private boolean isNothing() {
-		return strike + ball == INITIAL_VALUE;
-	}
-
 	private boolean isOnlyBall() {
 		return strike == INITIAL_VALUE;
 	}
 
 	private boolean isOnlyStrike() {
 		return ball == INITIAL_VALUE;
+	}
+
+	public boolean isAnswer() {
+		return strike == ANSWER_COUNT;
 	}
 }

@@ -1,6 +1,6 @@
 package baseball;
 
-import static baseball.constant.ConstValue.*;
+import static baseball.message.SystemMessage.*;
 
 import baseball.domain.Computer;
 import baseball.domain.Player;
@@ -9,6 +9,8 @@ import baseball.domain.Referee;
 import camp.nextstep.edu.missionutils.Console;
 
 public class GameController {
+	public static final String RESTART = "1";
+	public static final String END_GAME = "2";
 
 	private final Player player;
 	private final Computer computer;
@@ -52,7 +54,7 @@ public class GameController {
 	}
 
 	private String inputCommandNumber() {
-		System.out.println( CORRECT_AND_GAME_OVER );
+		System.out.println( ANSWER_AND_GAME_OVER );
 		System.out.println( REQUEST_RESTART_OR_END );
 		return Console.readLine();
 	}

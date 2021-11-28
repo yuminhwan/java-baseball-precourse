@@ -1,16 +1,20 @@
 package baseball.domain;
 
+import static baseball.message.SystemMessage.*;
+
 import java.util.ArrayList;
 import java.util.HashSet;
-
-import static baseball.constant.ConstValue.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class BaseBallNumber {
+	public static final int MIN_NUMBER = 1;
+	public static final int MAX_NUMBER = 9;
+	public static final int NUMBER_LENGTH = 3;
+
 	private final ArrayList<Integer> baseballNumber;
 
-	public BaseBallNumber(ArrayList<Integer> baseballNumber) {
+	public BaseBallNumber( ArrayList<Integer> baseballNumber ) {
 		this.baseballNumber = baseballNumber;
 	}
 
@@ -30,18 +34,6 @@ public class BaseBallNumber {
 		validateNumber(inputNumber);
 		ArrayList<Integer> playerNumber = convertStringToInt(inputNumber);
 		return new BaseBallNumber( playerNumber );
-	}
-
-	public int getNthNumber(int idx) {
-		return baseballNumber.get(idx);
-	}
-
-	public boolean containsNumber(int number) {
-		return baseballNumber.contains(number);
-	}
-
-	public boolean hasNumber( int number, int idx ) {
-		return baseballNumber.get(idx) == number;
 	}
 
 	private static ArrayList<Integer> convertStringToInt( String inputNumber ) {
@@ -70,5 +62,21 @@ public class BaseBallNumber {
 				throw new IllegalArgumentException( DUPLICATE_NUMBER );
 			}
 		}
+	}
+
+	public int getNthNumber(int idx) {
+		return baseballNumber.get(idx);
+	}
+
+	public int size() {
+		return baseballNumber.size();
+	}
+
+	public boolean containsNumber(int number) {
+		return baseballNumber.contains(number);
+	}
+
+	public boolean hasNumber( int number, int idx ) {
+		return baseballNumber.get(idx) == number;
 	}
 }
