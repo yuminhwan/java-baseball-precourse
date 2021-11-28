@@ -11,20 +11,20 @@ public class Referee {
 	private int strike;
 	private int ball;
 
-	public void saveComputerNumber( BaseBallNumber computerNumber ) {
+	public void saveComputerNumber(BaseBallNumber computerNumber) {
 		this.computerNumber = computerNumber;
 	}
 
-	public void judgeResult( BaseBallNumber playerNumber ) {
+	public void judgeResult(BaseBallNumber playerNumber) {
 		initBallAndStrike();
 
-		for ( int idx = 0; idx < playerNumber.size(); idx++ ) {
-			if ( isStrike(playerNumber, idx) ) {
+		for (int idx = 0; idx < playerNumber.size(); idx++) {
+			if (isStrike(playerNumber, idx)) {
 				strike++;
 				continue;
 			}
 
-			if ( isBall(playerNumber, idx) ) {
+			if (isBall(playerNumber, idx)) {
 				ball++;
 			}
 		}
@@ -44,7 +44,7 @@ public class Referee {
 	}
 
 	public String getResult() {
-		if ( isNothing() ) {
+		if (isNothing()) {
 			return NOTHING;
 		}
 		return ballAndStrike();
@@ -56,11 +56,11 @@ public class Referee {
 
 	private String ballAndStrike() {
 
-		if ( isOnlyStrike() ) {
+		if (isOnlyStrike()) {
 			return strike + STRIKE;
 		}
 
-		if ( isOnlyBall() ) {
+		if (isOnlyBall()) {
 			return ball + BALL;
 		}
 

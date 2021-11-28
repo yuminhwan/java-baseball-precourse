@@ -5,7 +5,6 @@ import static baseball.message.SystemMessage.*;
 import baseball.domain.Computer;
 import baseball.domain.Player;
 import baseball.domain.Referee;
-
 import camp.nextstep.edu.missionutils.Console;
 
 public class GameController {
@@ -37,13 +36,13 @@ public class GameController {
 	private void startGame() {
 		do {
 			inputPlayerNumber();
-			referee.judgeResult( player.getPlayerNumber() );
-			System.out.println( referee.getResult() );
-		} while ( !referee.isAnswer() );
+			referee.judgeResult(player.getPlayerNumber());
+			System.out.println(referee.getResult());
+		} while (!referee.isAnswer());
 	}
 
 	private void inputPlayerNumber() {
-		System.out.print( REQUEST_INPUT_NUMBER );
+		System.out.print(REQUEST_INPUT_NUMBER);
 		player.inputNumber();
 	}
 
@@ -54,14 +53,14 @@ public class GameController {
 	}
 
 	private String inputCommandNumber() {
-		System.out.println( ANSWER_AND_GAME_OVER );
-		System.out.println( REQUEST_RESTART_OR_END );
+		System.out.println(ANSWER_AND_GAME_OVER);
+		System.out.println(REQUEST_RESTART_OR_END);
 		return Console.readLine();
 	}
 
-	private void validateCommand( String command ) {
-		if ( !command.equals(RESTART_COMMAND) && !command.equals(END_COMMAND) ) {
-			throw new IllegalArgumentException( INVALID_COMMAND_NUMBER );
+	private void validateCommand(String command) {
+		if (!command.equals(RESTART_COMMAND) && !command.equals(END_COMMAND)) {
+			throw new IllegalArgumentException(INVALID_COMMAND_NUMBER);
 		}
 	}
 }
