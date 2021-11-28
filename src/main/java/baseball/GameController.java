@@ -8,8 +8,8 @@ import baseball.domain.Referee;
 import camp.nextstep.edu.missionutils.Console;
 
 public class GameController {
-	public static final String RESTART_COMMAND = "1";
-	public static final String END_COMMAND = "2";
+	private static final String RESTART_COMMAND = "1";
+	private static final String END_COMMAND = "2";
 
 	private final Player player;
 	private final Computer computer;

@@ -1,11 +1,11 @@
 package baseball.domain;
 
 public class Referee {
-	public static final int INITIAL_VALUE = 0;
-	public static final int ANSWER_COUNT = 3;
-	public static final String BALL = "볼";
-	public static final String STRIKE = "스트라이크";
-	public static final String NOTHING = "낫싱";
+	private static final int INITIAL_VALUE = 0;
+	private static final int ANSWER_COUNT = 3;
+	private static final String BALL = "볼";
+	private static final String STRIKE = "스트라이크";
+	private static final String NOTHING = "낫싱";
 
 	private BaseBallNumber computerNumber;
 	private int strike;
