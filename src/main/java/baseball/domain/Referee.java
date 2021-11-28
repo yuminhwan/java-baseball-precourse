@@ -39,7 +39,7 @@ public class Referee {
 	}
 
 	public boolean isAnswer() {
-		return strike == MAX_COUNT;
+		return strike == ANSWER_COUNT;
 	}
 
 	private void initBallAndStrike() {

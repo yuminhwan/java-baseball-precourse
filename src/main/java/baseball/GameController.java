@@ -52,14 +52,14 @@ public class GameController {
 	}
 
 	private String inputCommandNumber() {
-		System.out.println(CORRECT_AND_GAME_OVER);
-		System.out.println(REQUEST_RESTART_OR_END);
+		System.out.println( CORRECT_AND_GAME_OVER );
+		System.out.println( REQUEST_RESTART_OR_END );
 		return Console.readLine();
 	}
 
 	private void validateCommand( String command ) {
 		if ( !command.equals( RESTART ) && !command.equals( END_GAME ) ) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException( INVALID_COMMAND_NUMBER );
 		}
 	}
 }

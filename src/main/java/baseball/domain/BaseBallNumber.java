@@ -57,17 +57,17 @@ public class BaseBallNumber {
 		HashSet<Character> duplicateNumber = new HashSet<>();
 
 		if ( inputNumber.length() != NUMBER_LENGTH ) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException( INVALID_LENGTH );
 		}
 
 		for( int idx = 0; idx<NUMBER_LENGTH; idx++) {
 			char number = inputNumber.charAt(idx);
 			if ( number < (char) ( MIN_NUMBER + '0' ) || number > ( MAX_NUMBER + '0' ) ) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException( INVALID_NUMBER );
 			}
 
 			if ( !duplicateNumber.add(number) ) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException( DUPLICATE_NUMBER );
 			}
 		}
 	}
