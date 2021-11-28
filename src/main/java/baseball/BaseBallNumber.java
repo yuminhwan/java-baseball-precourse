@@ -3,13 +3,11 @@ package baseball;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import static baseball.ConstValue.*;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class BaseBallNumber {
-	private static final int MIN_NUMBER = 1;
-	private static final int MAX_NUMBER = 9;
-	private static final int NUMBER_LENGTH = 3;
-
 	private final ArrayList<Integer> baseballNumber;
 
 	public BaseBallNumber(ArrayList<Integer> baseballNumber) {

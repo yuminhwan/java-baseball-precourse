@@ -1,10 +1,10 @@
 package baseball;
 
+import static baseball.ConstValue.*;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class GameController {
-	private static final int RESTART = 1;
-	private static final int END_GAME = 2;
 
 	private final Player player;
 	private final Computer computer;
@@ -20,7 +20,7 @@ public class GameController {
 		do {
 			readyForGame();
 			startGame();
-		} while (finishGame());
+		} while (restartGame());
 	}
 
 	private void readyForGame() {
@@ -30,23 +30,23 @@ public class GameController {
 
 	private void startGame() {
 		do {
-			System.out.print("숫자를 입력해주세요 : ");
+			System.out.print( REQUEST_INPUT_NUMBER );
 			player.inputNumber();
 			referee.judgeResult( player.getPlayerNumber() );
 			System.out.println( referee.getResult() );
 		} while ( !referee.isAnswer() );
 	}
 
-	private boolean finishGame() {
-		System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+	private boolean restartGame() {
+		System.out.println(CORRECT_AND_GAME_OVER);
+		System.out.println(REQUEST_RESTART_OR_END);
 		String inputCommand = Console.readLine();
 		validateCommand(inputCommand);
-		return inputCommand.equals( String.valueOf(RESTART) );
+		return inputCommand.equals( RESTART );
 	}
 
 	private void validateCommand( String command ) {
-		if ( !command.equals( String.valueOf(RESTART) ) && !command.equals( String.valueOf(END_GAME) ) ) {
+		if ( !command.equals( RESTART ) && !command.equals( END_GAME ) ) {
 			throw new IllegalArgumentException();
 		}
 	}

@@ -1,11 +1,8 @@
 package baseball;
 
+import static baseball.ConstValue.*;
+
 public class Referee {
-	private static final int NUMBER_LENGTH = 3;
-	private static final int INITIAL_VALUE = 0;
-	private static final String BALL = "볼";
-	private static final String STRIKE = "스트라이크";
-	private static final String NOTHING = "낫싱";
 
 	private BaseBallNumber computerNumber;
 	private int strike;
