@@ -30,19 +30,27 @@ public class GameController {
 
 	private void startGame() {
 		do {
-			System.out.print( REQUEST_INPUT_NUMBER );
-			player.inputNumber();
+			inputPlayerNumber();
 			referee.judgeResult( player.getPlayerNumber() );
 			System.out.println( referee.getResult() );
 		} while ( !referee.isAnswer() );
 	}
 
+	private void inputPlayerNumber() {
+		System.out.print( REQUEST_INPUT_NUMBER );
+		player.inputNumber();
+	}
+
 	private boolean restartGame() {
-		System.out.println(CORRECT_AND_GAME_OVER);
-		System.out.println(REQUEST_RESTART_OR_END);
-		String inputCommand = Console.readLine();
+		String inputCommand = inputCommandNumber();
 		validateCommand(inputCommand);
 		return inputCommand.equals( RESTART );
+	}
+
+	private String inputCommandNumber() {
+		System.out.println(CORRECT_AND_GAME_OVER);
+		System.out.println(REQUEST_RESTART_OR_END);
+		return Console.readLine();
 	}
 
 	private void validateCommand( String command ) {
