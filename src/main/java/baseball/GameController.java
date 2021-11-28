@@ -9,8 +9,8 @@ import baseball.domain.Referee;
 import camp.nextstep.edu.missionutils.Console;
 
 public class GameController {
-	public static final String RESTART = "1";
-	public static final String END_GAME = "2";
+	public static final String RESTART_COMMAND = "1";
+	public static final String END_COMMAND = "2";
 
 	private final Player player;
 	private final Computer computer;
@@ -50,7 +50,7 @@ public class GameController {
 	private boolean restartGame() {
 		String inputCommand = inputCommandNumber();
 		validateCommand(inputCommand);
-		return inputCommand.equals( RESTART );
+		return inputCommand.equals(RESTART_COMMAND);
 	}
 
 	private String inputCommandNumber() {
@@ -60,7 +60,7 @@ public class GameController {
 	}
 
 	private void validateCommand( String command ) {
-		if ( !command.equals( RESTART ) && !command.equals( END_GAME ) ) {
+		if ( !command.equals(RESTART_COMMAND) && !command.equals(END_COMMAND) ) {
 			throw new IllegalArgumentException( INVALID_COMMAND_NUMBER );
 		}
 	}
