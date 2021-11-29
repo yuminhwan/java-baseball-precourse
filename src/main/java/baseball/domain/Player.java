@@ -4,14 +4,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Player {
 
-	private BaseBallNumbers playerNumbers;
+    private BaseBallNumbers playerNumbers;
 
-	public void inputNumbers() {
-		String inputNumber = Console.readLine();
-		playerNumbers = BaseBallNumbers.generatePlayerNumber(inputNumber);
-	}
+    public void inputNumbers() {
+        String inputNumber = Console.readLine();
+        playerNumbers = BaseBallNumbers.generatePlayerNumber(inputNumber);
+    }
 
-	public BaseBallNumbers getPlayerNumbers() {
-		return playerNumbers;
-	}
+    public BaseBallNumbers getPlayerNumbers() {
+        return playerNumbers;
+    }
 }
