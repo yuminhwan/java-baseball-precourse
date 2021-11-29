@@ -67,19 +67,15 @@ public class BaseBallNumbers {
 		}
 	}
 
-	private int getNumberByIdx(int idx) {
-		return baseballNumbers.get(idx);
-	}
-
 	public int size() {
 		return baseballNumbers.size();
 	}
 
 	public boolean containsNumber(BaseBallNumbers compareNumber, int idx) {
-		return baseballNumbers.contains(compareNumber.getNumberByIdx(idx));
+		return baseballNumbers.contains(compareNumber.baseballNumbers.get(idx));
 	}
 
 	public boolean hasNumber(BaseBallNumbers compareNumber, int idx) {
-		return baseballNumbers.get(idx) == compareNumber.getNumberByIdx(idx);
+		return baseballNumbers.get(idx).equals(compareNumber.baseballNumbers.get(idx));
 	}
 }
