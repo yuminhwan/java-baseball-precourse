@@ -5,7 +5,7 @@ public class Computer {
     private BaseBallNumbers computerNumbers;
 
     public void generateComputerNumbers() {
-        computerNumbers = BaseBallNumbers.generateComputerNumber();
+        computerNumbers = BaseBallNumbers.generateComputerNumbers();
     }
 
     public BaseBallNumbers getComputerNumbers() {

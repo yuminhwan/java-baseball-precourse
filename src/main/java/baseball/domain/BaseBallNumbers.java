@@ -22,7 +22,7 @@ public class BaseBallNumbers {
         this.baseballNumbers = baseballNumbers;
     }
 
-    public static BaseBallNumbers generateComputerNumber() {
+    public static BaseBallNumbers generateComputerNumbers() {
         List<Integer> answerNumbers = new ArrayList<>();
 
         while (answerNumbers.size() < NUMBER_LENGTH) {
@@ -34,7 +34,7 @@ public class BaseBallNumbers {
         return new BaseBallNumbers(answerNumbers);
     }
 
-    public static BaseBallNumbers generatePlayerNumber(String inputNumbers) {
+    public static BaseBallNumbers generatePlayerNumbers(String inputNumbers) {
         validateNumber(inputNumbers);
         List<Integer> playerNumbers = convertStringToInt(inputNumbers);
         return new BaseBallNumbers(playerNumbers);

@@ -8,7 +8,7 @@ public class Player {
 
     public void inputNumbers() {
         String inputNumber = Console.readLine();
-        playerNumbers = BaseBallNumbers.generatePlayerNumber(inputNumber);
+        playerNumbers = BaseBallNumbers.generatePlayerNumbers(inputNumber);
     }
 
     public BaseBallNumbers getPlayerNumbers() {
