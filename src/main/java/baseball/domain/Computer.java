@@ -2,10 +2,10 @@ package baseball.domain;
 
 public class Computer {
 
-    private BaseBallNumbers computerNumbers;
+    private final BaseBallNumbers computerNumbers;
 
-    public void generateComputerNumbers() {
-        computerNumbers = BaseBallNumbers.generateComputerNumbers();
+    public Computer() {
+        this.computerNumbers = BaseBallNumbers.generateComputerNumbers();
     }
 
     public BaseBallNumbers getComputerNumbers() {

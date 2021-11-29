@@ -1,14 +1,11 @@
 package baseball.domain;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class Player {
 
-    private BaseBallNumbers playerNumbers;
+    private final BaseBallNumbers playerNumbers;
 
-    public void inputNumbers() {
-        String inputNumber = Console.readLine();
-        playerNumbers = BaseBallNumbers.generatePlayerNumbers(inputNumber);
+    public Player(String inputNumber) {
+        this.playerNumbers = BaseBallNumbers.generatePlayerNumbers(inputNumber);
     }
 
     public BaseBallNumbers getPlayerNumbers() {
