@@ -3,7 +3,11 @@ package baseball.domain;
 import static baseball.message.SystemMessage.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -12,14 +16,14 @@ public class BaseBallNumber {
 	private static final int MAX_NUMBER = 9;
 	private static final int NUMBER_LENGTH = 3;
 
-	private final ArrayList<Integer> baseballNumber;
+	private final List<Integer> baseballNumber;
 
-	public BaseBallNumber(ArrayList<Integer> baseballNumber) {
+	public BaseBallNumber(List<Integer> baseballNumber) {
 		this.baseballNumber = baseballNumber;
 	}
 
 	public static BaseBallNumber generateComputerNumber() {
-		ArrayList<Integer> answerNumber = new ArrayList<>();
+		List<Integer> answerNumber = new ArrayList<>();
 
 		while (answerNumber.size() < NUMBER_LENGTH) {
 			int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
@@ -32,21 +36,20 @@ public class BaseBallNumber {
 
 	public static BaseBallNumber generatePlayerNumber(String inputNumber) {
 		validateNumber(inputNumber);
-		ArrayList<Integer> playerNumber = convertStringToInt(inputNumber);
+		List<Integer> playerNumber = convertStringToInt(inputNumber);
 		return new BaseBallNumber(playerNumber);
 	}
 
-	private static ArrayList<Integer> convertStringToInt(String inputNumber) {
-		ArrayList<Integer> playerNumber = new ArrayList<>();
+	private static List<Integer> convertStringToInt(String inputNumber) {
 		String[] splitNumber = inputNumber.split("");
-		for (String number : splitNumber) {
-			playerNumber.add(Integer.parseInt(number));
-		}
-		return playerNumber;
+
+		return Arrays.stream(splitNumber)
+			.map(Integer::parseInt)
+			.collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	private static void validateNumber(String inputNumber) {
-		HashSet<Character> duplicateNumber = new HashSet<>();
+		Set<Character> duplicateNumber = new HashSet<>();
 
 		if (inputNumber.length() != NUMBER_LENGTH) {
 			throw new IllegalArgumentException(INVALID_LENGTH);
