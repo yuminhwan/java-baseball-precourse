@@ -16,39 +16,41 @@ public class BaseBallNumbers {
     private static final int MAX_NUMBER = 9;
     private static final int NUMBER_LENGTH = 3;
 
-    private final List<Integer> baseballNumbers;
+    private final List<BaseBallNumber> baseballNumbers;
 
-    public BaseBallNumbers(List<Integer> baseballNumbers) {
+    public BaseBallNumbers(List<BaseBallNumber> baseballNumbers) {
         this.baseballNumbers = baseballNumbers;
     }
 
     public static BaseBallNumbers generateComputerNumbers() {
-        List<Integer> answerNumbers = new ArrayList<>();
+        List<BaseBallNumber> answerNumbers = new ArrayList<>();
 
         while (answerNumbers.size() < NUMBER_LENGTH) {
             int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
-            if (!answerNumbers.contains(randomNumber)) {
-                answerNumbers.add(randomNumber);
+            BaseBallNumber baseballNumber = BaseBallNumber.generateBaseBallNumber(randomNumber);
+            if (!answerNumbers.contains(baseballNumber)) {
+                answerNumbers.add(baseballNumber);
             }
         }
         return new BaseBallNumbers(answerNumbers);
     }
 
     public static BaseBallNumbers generatePlayerNumbers(String inputNumbers) {
-        validateNumber(inputNumbers);
-        List<Integer> playerNumbers = convertStringToInt(inputNumbers);
+        validateNumbers(inputNumbers);
+        List<BaseBallNumber> playerNumbers = convertStringToBaseBallNumber(inputNumbers);
         return new BaseBallNumbers(playerNumbers);
     }
 
-    private static List<Integer> convertStringToInt(String inputNumbers) {
+    private static List<BaseBallNumber> convertStringToBaseBallNumber(String inputNumbers) {
         String[] splitNumbers = inputNumbers.split("");
 
         return Arrays.stream(splitNumbers)
             .map(Integer::parseInt)
+            .map(BaseBallNumber::generateBaseBallNumber)
             .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private static void validateNumber(String inputNumbers) {
+    private static void validateNumbers(String inputNumbers) {
         Set<Character> duplicateNumbers = new HashSet<>();
 
         if (inputNumbers.length() != NUMBER_LENGTH) {
@@ -71,11 +73,12 @@ public class BaseBallNumbers {
         return baseballNumbers.size();
     }
 
-    public boolean containsNumber(BaseBallNumbers compareNumber, int idx) {
-        return baseballNumbers.contains(compareNumber.baseballNumbers.get(idx));
+    public boolean containsNumber(BaseBallNumbers compareNumbers, int idx) {
+        BaseBallNumber compareNumber = compareNumbers.baseballNumbers.get(idx);
+        return baseballNumbers.contains(compareNumber);
     }
 
-    public boolean hasNumber(BaseBallNumbers compareNumber, int idx) {
-        return baseballNumbers.get(idx).equals(compareNumber.baseballNumbers.get(idx));
+    public boolean hasNumber(BaseBallNumbers compareNumbers, int idx) {
+        return baseballNumbers.get(idx).equals(compareNumbers.baseballNumbers.get(idx));
     }
 }
