@@ -54,7 +54,7 @@ public class BaseBallNumber {
 
 		for (int idx = 0; idx < NUMBER_LENGTH; idx++) {
 			char number = inputNumber.charAt(idx);
-			if (number < (char)(MIN_NUMBER + '0') || number > (MAX_NUMBER + '0')) {
+			if (number < Character.forDigit(MIN_NUMBER, 10) || number > Character.forDigit(MAX_NUMBER, 10)) {
 				throw new IllegalArgumentException(INVALID_NUMBER);
 			}
 
