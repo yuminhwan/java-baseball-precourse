@@ -19,14 +19,18 @@ public class Referee {
 		initBallAndStrike();
 
 		for (int idx = 0; idx < playerNumber.size(); idx++) {
-			if (isStrike(playerNumber, idx)) {
-				strike++;
-				continue;
-			}
+			judgeBallAndStrike(playerNumber, idx);
+		}
+	}
 
-			if (isBall(playerNumber, idx)) {
-				ball++;
-			}
+	private void judgeBallAndStrike(BaseBallNumber playerNumber, int idx) {
+		if (isStrike(playerNumber, idx)) {
+			strike++;
+			return;
+		}
+
+		if (isBall(playerNumber, idx)) {
+			ball++;
 		}
 	}
 
@@ -36,11 +40,11 @@ public class Referee {
 	}
 
 	private boolean isStrike(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.hasNumber(playerNumber.getNthNumber(idx), idx);
+		return computerNumber.hasNumber(playerNumber, idx);
 	}
 
 	private boolean isBall(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.containsNumber(playerNumber.getNthNumber(idx));
+		return computerNumber.containsNumber(playerNumber, idx);
 	}
 
 	public String getResult() {

@@ -64,7 +64,7 @@ public class BaseBallNumber {
 		}
 	}
 
-	public int getNthNumber(int idx) {
+	private int getNumberByIdx(int idx) {
 		return baseballNumber.get(idx);
 	}
 
@@ -72,11 +72,11 @@ public class BaseBallNumber {
 		return baseballNumber.size();
 	}
 
-	public boolean containsNumber(int number) {
-		return baseballNumber.contains(number);
+	public boolean containsNumber(BaseBallNumber compareNumber, int idx) {
+		return baseballNumber.contains(compareNumber.getNumberByIdx(idx));
 	}
 
-	public boolean hasNumber(int number, int idx) {
-		return baseballNumber.get(idx) == number;
+	public boolean hasNumber(BaseBallNumber compareNumber, int idx) {
+		return baseballNumber.get(idx) == compareNumber.getNumberByIdx(idx);
 	}
 }
