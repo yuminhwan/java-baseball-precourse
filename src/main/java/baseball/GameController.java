@@ -15,10 +15,10 @@ public class GameController {
 	private final Computer computer;
 	private final Referee referee;
 
-	public GameController() {
-		player = new Player();
-		computer = new Computer();
-		referee = new Referee();
+	public GameController(Player player, Computer computer, Referee referee) {
+		this.player = player;
+		this.computer = computer;
+		this.referee = referee;
 	}
 
 	public void run() {
@@ -29,21 +29,21 @@ public class GameController {
 	}
 
 	private void readyForGame() {
-		computer.generateComputerNumber();
-		referee.saveComputerNumber(computer.getComputerNumber());
+		computer.generateComputerNumbers();
+		referee.saveComputerNumbers(computer.getComputerNumbers());
 	}
 
 	private void startGame() {
 		do {
-			inputPlayerNumber();
-			referee.judgeResult(player.getPlayerNumber());
+			inputPlayerNumbers();
+			referee.judgeResult(player.getPlayerNumbers());
 			System.out.println(referee.getResult());
 		} while (!referee.isAnswer());
 	}
 
-	private void inputPlayerNumber() {
+	private void inputPlayerNumbers() {
 		System.out.print(REQUEST_INPUT_NUMBER);
-		player.inputNumber();
+		player.inputNumbers();
 	}
 
 	private boolean restartGame() {

@@ -7,29 +7,29 @@ public class Referee {
 	private static final String STRIKE = "스트라이크";
 	private static final String NOTHING = "낫싱";
 
-	private BaseBallNumber computerNumber;
+	private BaseBallNumbers computerNumbers;
 	private int strike;
 	private int ball;
 
-	public void saveComputerNumber(BaseBallNumber computerNumber) {
-		this.computerNumber = computerNumber;
+	public void saveComputerNumbers(BaseBallNumbers computerNumbers) {
+		this.computerNumbers = computerNumbers;
 	}
 
-	public void judgeResult(BaseBallNumber playerNumber) {
+	public void judgeResult(BaseBallNumbers playerNumbers) {
 		initBallAndStrike();
 
-		for (int idx = 0; idx < playerNumber.size(); idx++) {
-			judgeBallAndStrike(playerNumber, idx);
+		for (int idx = 0; idx < playerNumbers.size(); idx++) {
+			judgeBallAndStrike(playerNumbers, idx);
 		}
 	}
 
-	private void judgeBallAndStrike(BaseBallNumber playerNumber, int idx) {
-		if (isStrike(playerNumber, idx)) {
+	private void judgeBallAndStrike(BaseBallNumbers playerNumbers, int idx) {
+		if (isStrike(playerNumbers, idx)) {
 			strike++;
 			return;
 		}
 
-		if (isBall(playerNumber, idx)) {
+		if (isBall(playerNumbers, idx)) {
 			ball++;
 		}
 	}
@@ -39,12 +39,12 @@ public class Referee {
 		ball = INITIAL_VALUE;
 	}
 
-	private boolean isStrike(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.hasNumber(playerNumber, idx);
+	private boolean isStrike(BaseBallNumbers playerNumbers, int idx) {
+		return computerNumbers.hasNumber(playerNumbers, idx);
 	}
 
-	private boolean isBall(BaseBallNumber playerNumber, int idx) {
-		return computerNumber.containsNumber(playerNumber, idx);
+	private boolean isBall(BaseBallNumbers playerNumbers, int idx) {
+		return computerNumbers.containsNumber(playerNumbers, idx);
 	}
 
 	public String getResult() {

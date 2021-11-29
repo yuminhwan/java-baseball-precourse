@@ -2,13 +2,13 @@ package baseball.domain;
 
 public class Computer {
 
-	private BaseBallNumber computerNumber;
+	private BaseBallNumbers computerNumbers;
 
-	public void generateComputerNumber() {
-		computerNumber = BaseBallNumber.generateComputerNumber();
+	public void generateComputerNumbers() {
+		computerNumbers = BaseBallNumbers.generateComputerNumber();
 	}
 
-	public BaseBallNumber getComputerNumber() {
-		return computerNumber;
+	public BaseBallNumbers getComputerNumbers() {
+		return computerNumbers;
 	}
 }
