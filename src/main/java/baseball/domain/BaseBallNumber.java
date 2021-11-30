@@ -1,8 +1,8 @@
 package baseball.domain;
 
-import static baseball.message.SystemMessage.*;
-
 public class BaseBallNumber {
+    private static final String INVALID_NUMBER = "1-9 사이의 숫자를 입력해야 합니다.";
+
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
 
