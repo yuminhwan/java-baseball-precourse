@@ -39,15 +39,31 @@ public class BaseBallNumbers {
         return new BaseBallNumbers(playerNumbers);
     }
 
-    public int size() {
-        return baseballNumbers.size();
+    public int judgeStrike(BaseBallNumbers compareNumbers) {
+        int strike = 0;
+        for (int idx = 0; idx < NUMBER_LENGTH; idx++) {
+            if (isStrike(compareNumbers, idx)) {
+                strike++;
+            }
+        }
+        return strike;
     }
 
-    public boolean containsNumber(BaseBallNumbers compareNumbers, int idx) {
-        return baseballNumbers.contains(compareNumbers.baseballNumbers.get(idx));
+    public int judgeBall(BaseBallNumbers compareNumbers) {
+        int ball = 0;
+        for (int idx = 0; idx < NUMBER_LENGTH; idx++) {
+            if (isBall(compareNumbers, idx)) {
+                ball++;
+            }
+        }
+        return ball;
     }
 
-    public boolean hasNumber(BaseBallNumbers compareNumbers, int idx) {
+    private boolean isBall(BaseBallNumbers compareNumbers, int idx) {
+        return !isStrike(compareNumbers, idx) && baseballNumbers.contains(compareNumbers.baseballNumbers.get(idx));
+    }
+
+    private boolean isStrike(BaseBallNumbers compareNumbers, int idx) {
         return baseballNumbers.get(idx).equals(compareNumbers.baseballNumbers.get(idx));
     }
 }
