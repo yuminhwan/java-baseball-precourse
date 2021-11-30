@@ -1,7 +1,8 @@
 package baseball.domain;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -18,13 +19,11 @@ public class BaseBallNumbers {
     }
 
     public static BaseBallNumbers generateComputerNumbers() {
-        List<Integer> randomNumbers = new ArrayList<>();
+        Set<Integer> randomNumbers = new HashSet<>();
 
         while (randomNumbers.size() < NUMBER_LENGTH) {
             int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
-            if (!randomNumbers.contains(randomNumber)) {
-                randomNumbers.add(randomNumber);
-            }
+            randomNumbers.add(randomNumber);
         }
 
         List<BaseBallNumber> answerNumbers = randomNumbers.stream()
