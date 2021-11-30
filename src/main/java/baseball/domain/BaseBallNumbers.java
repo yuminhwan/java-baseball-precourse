@@ -1,12 +1,7 @@
 package baseball.domain;
 
-import static baseball.message.SystemMessage.*;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -35,38 +30,11 @@ public class BaseBallNumbers {
         return new BaseBallNumbers(answerNumbers);
     }
 
-    public static BaseBallNumbers generatePlayerNumbers(String inputNumbers) {
-        validateNumbers(inputNumbers);
-        List<BaseBallNumber> playerNumbers = convertStringToBaseBallNumber(inputNumbers);
-        return new BaseBallNumbers(playerNumbers);
-    }
-
-    private static List<BaseBallNumber> convertStringToBaseBallNumber(String inputNumbers) {
-        String[] splitNumbers = inputNumbers.split("");
-
-        return Arrays.stream(splitNumbers)
-            .map(Integer::parseInt)
+    public static BaseBallNumbers generatePlayerNumbers(List<Integer> inputNumbers) {
+        List<BaseBallNumber> playerNumbers = inputNumbers.stream()
             .map(BaseBallNumber::generateBaseBallNumber)
-            .collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    private static void validateNumbers(String inputNumbers) {
-        Set<Character> duplicateNumbers = new HashSet<>();
-
-        if (inputNumbers.length() != NUMBER_LENGTH) {
-            throw new IllegalArgumentException(INVALID_LENGTH);
-        }
-
-        for (int idx = 0; idx < NUMBER_LENGTH; idx++) {
-            char number = inputNumbers.charAt(idx);
-            if (number < Character.forDigit(MIN_NUMBER, 10) || number > Character.forDigit(MAX_NUMBER, 10)) {
-                throw new IllegalArgumentException(INVALID_NUMBER);
-            }
-
-            if (!duplicateNumbers.add(number)) {
-                throw new IllegalArgumentException(DUPLICATE_NUMBER);
-            }
-        }
+            .collect(Collectors.toList());
+        return new BaseBallNumbers(playerNumbers);
     }
 
     public int size() {

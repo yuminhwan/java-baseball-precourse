@@ -1,10 +1,12 @@
 package baseball.domain;
 
+import java.util.List;
+
 public class Player {
 
     private final BaseBallNumbers playerNumbers;
 
-    public Player(String inputNumber) {
+    public Player(List<Integer> inputNumber) {
         this.playerNumbers = BaseBallNumbers.generatePlayerNumbers(inputNumber);
     }
 

@@ -1,7 +1,5 @@
 package baseball;
 
-import static baseball.message.SystemMessage.*;
-
 import baseball.View.InputView;
 import baseball.View.OutputView;
 import baseball.domain.Computer;
@@ -11,7 +9,6 @@ import baseball.domain.Referee;
 
 public class Application {
     private static final String RESTART_COMMAND = "1";
-    private static final String END_COMMAND = "2";
 
     public static void main(String[] args) {
         do {
@@ -33,14 +30,7 @@ public class Application {
 
     private static boolean restartGame() {
         String inputCommand = InputView.inputCommandNumber();
-        validateCommand(inputCommand);
         return inputCommand.equals(RESTART_COMMAND);
-    }
-
-    private static void validateCommand(String command) {
-        if (!command.equals(RESTART_COMMAND) && !command.equals(END_COMMAND)) {
-            throw new IllegalArgumentException(INVALID_COMMAND_NUMBER);
-        }
     }
 
 }
