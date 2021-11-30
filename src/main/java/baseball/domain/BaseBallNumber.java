@@ -8,7 +8,7 @@ public class BaseBallNumber {
 
     private final int baseballNumber;
 
-    public BaseBallNumber(int baseballNumber) {
+    private BaseBallNumber(int baseballNumber) {
         this.baseballNumber = baseballNumber;
     }
 

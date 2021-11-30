@@ -7,6 +7,9 @@ public class OutputView {
     private static final String STRIKE = "스트라이크";
     private static final String NOTHING = "낫싱";
 
+    private OutputView() {
+    }
+
     public static void outputGameResult(GameResult gameResult) {
         String message = getOutputResult(gameResult);
         System.out.println(message);

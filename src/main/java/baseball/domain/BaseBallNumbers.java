@@ -13,7 +13,7 @@ public class BaseBallNumbers {
 
     private final List<BaseBallNumber> baseballNumbers;
 
-    public BaseBallNumbers(List<BaseBallNumber> baseballNumbers) {
+    private BaseBallNumbers(List<BaseBallNumber> baseballNumbers) {
         this.baseballNumbers = baseballNumbers;
     }
 
