@@ -1,4 +1,4 @@
-package baseball.View;
+package baseball.view;
 
 import baseball.domain.GameResult;
 

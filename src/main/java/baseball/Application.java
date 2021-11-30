@@ -1,12 +1,12 @@
 package baseball;
 
-import baseball.View.InputView;
-import baseball.View.OutputView;
 import baseball.domain.BaseBallNumbers;
 import baseball.domain.Computer;
 import baseball.domain.GameResult;
 import baseball.domain.Player;
 import baseball.domain.Referee;
+import baseball.view.InputView;
+import baseball.view.OutputView;
 
 public class Application {
     private static final String RESTART_COMMAND = "1";
