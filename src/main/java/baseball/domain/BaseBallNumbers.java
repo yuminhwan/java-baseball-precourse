@@ -74,8 +74,7 @@ public class BaseBallNumbers {
     }
 
     public boolean containsNumber(BaseBallNumbers compareNumbers, int idx) {
-        BaseBallNumber compareNumber = compareNumbers.baseballNumbers.get(idx);
-        return baseballNumbers.contains(compareNumber);
+        return baseballNumbers.contains(compareNumbers.baseballNumbers.get(idx));
     }
 
     public boolean hasNumber(BaseBallNumbers compareNumbers, int idx) {
