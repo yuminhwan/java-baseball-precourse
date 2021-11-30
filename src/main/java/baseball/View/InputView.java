@@ -51,13 +51,20 @@ public class InputView {
 
         for (int idx = 0; idx < NUMBER_LENGTH; idx++) {
             char number = inputNumbers.charAt(idx);
-            if (number < MIN_NUMBER || number > MAX_NUMBER) {
-                throw new IllegalArgumentException(INVALID_NUMBER);
-            }
+            validateDigitAndNumberRange(number);
+            validateDuplicate(duplicateNumbers, number);
+        }
+    }
 
-            if (!duplicateNumbers.add(number)) {
-                throw new IllegalArgumentException(DUPLICATE_NUMBER);
-            }
+    private static void validateDuplicate(Set<Character> duplicateNumbers, char number) {
+        if (!duplicateNumbers.add(number)) {
+            throw new IllegalArgumentException(DUPLICATE_NUMBER);
+        }
+    }
+
+    private static void validateDigitAndNumberRange(char number) {
+        if (number < MIN_NUMBER || number > MAX_NUMBER) {
+            throw new IllegalArgumentException(INVALID_NUMBER);
         }
     }
 
