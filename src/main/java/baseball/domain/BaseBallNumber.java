@@ -29,4 +29,8 @@ public class BaseBallNumber {
             ((BaseBallNumber)obj).baseballNumber == this.baseballNumber;
     }
 
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(baseballNumber);
+    }
 }
