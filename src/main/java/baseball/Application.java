@@ -16,15 +16,15 @@ public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
         do {
-            startGame(inputView);
+            Computer computer = new Computer();
+            Referee referee = new Referee(computer.getComputerNumbers());
+            startGame(inputView, referee);
         } while (restartGame(inputView));
 
     }
 
-    private static void startGame(InputView inputView) {
+    private static void startGame(InputView inputView, Referee referee) {
         GameResult gameResult;
-        Computer computer = new Computer();
-        Referee referee = new Referee(computer.getComputerNumbers());
         do {
             Player player = new Player(inputView.inputBaseBallNumbers());
             gameResult = referee.judgeResult(player.getPlayerNumbers());
