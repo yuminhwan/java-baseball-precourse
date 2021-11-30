@@ -14,26 +14,25 @@ public class Application {
     private static final String END_COMMAND = "2";
 
     public static void main(String[] args) {
-        InputView inputView = new InputView();
         do {
             Computer computer = new Computer();
             Referee referee = new Referee(computer.getComputerNumbers());
-            startGame(inputView, referee);
-        } while (restartGame(inputView));
+            startGame(referee);
+        } while (restartGame());
 
     }
 
-    private static void startGame(InputView inputView, Referee referee) {
+    private static void startGame(Referee referee) {
         GameResult gameResult;
         do {
-            Player player = new Player(inputView.inputBaseBallNumbers());
+            Player player = new Player(InputView.inputBaseBallNumbers());
             gameResult = referee.judgeResult(player.getPlayerNumbers());
             OutputView.outputGameResult(gameResult);
         } while (!gameResult.isAnswer());
     }
 
-    private static boolean restartGame(InputView inputView) {
-        String inputCommand = inputView.inputCommandNumber();
+    private static boolean restartGame() {
+        String inputCommand = InputView.inputCommandNumber();
         validateCommand(inputCommand);
         return inputCommand.equals(RESTART_COMMAND);
     }
