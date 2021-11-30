@@ -18,15 +18,18 @@ public class BaseBallNumbers {
     }
 
     public static BaseBallNumbers generateComputerNumbers() {
-        List<BaseBallNumber> answerNumbers = new ArrayList<>();
+        List<Integer> randomNumbers = new ArrayList<>();
 
-        while (answerNumbers.size() < NUMBER_LENGTH) {
+        while (randomNumbers.size() < NUMBER_LENGTH) {
             int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
-            BaseBallNumber baseballNumber = BaseBallNumber.generateBaseBallNumber(randomNumber);
-            if (!answerNumbers.contains(baseballNumber)) {
-                answerNumbers.add(baseballNumber);
+            if (!randomNumbers.contains(randomNumber)) {
+                randomNumbers.add(randomNumber);
             }
         }
+
+        List<BaseBallNumber> answerNumbers = randomNumbers.stream()
+            .map(BaseBallNumber::generateBaseBallNumber)
+            .collect(Collectors.toList());
         return new BaseBallNumbers(answerNumbers);
     }
 
