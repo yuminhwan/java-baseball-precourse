@@ -2,6 +2,7 @@ package baseball;
 
 import baseball.View.InputView;
 import baseball.View.OutputView;
+import baseball.domain.BaseBallNumbers;
 import baseball.domain.Computer;
 import baseball.domain.GameResult;
 import baseball.domain.Player;
@@ -12,7 +13,7 @@ public class Application {
 
     public static void main(String[] args) {
         do {
-            Computer computer = new Computer();
+            Computer computer = new Computer(BaseBallNumbers.generateComputerNumbers());
             Referee referee = new Referee(computer.getComputerNumbers());
             startGame(referee);
         } while (restartGame());

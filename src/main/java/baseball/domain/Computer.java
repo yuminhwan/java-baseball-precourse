@@ -4,8 +4,8 @@ public class Computer {
 
     private final BaseBallNumbers computerNumbers;
 
-    public Computer() {
-        this.computerNumbers = BaseBallNumbers.generateComputerNumbers();
+    public Computer(BaseBallNumbers computerNumbers) {
+        this.computerNumbers = computerNumbers;
     }
 
     public BaseBallNumbers getComputerNumbers() {
