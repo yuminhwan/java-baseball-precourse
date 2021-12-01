@@ -8,16 +8,12 @@ public class BaseBallNumber {
 
     private final int baseballNumber;
 
-    private BaseBallNumber(int baseballNumber) {
+    public BaseBallNumber(int baseballNumber) {
+        validateNumberRange(baseballNumber);
         this.baseballNumber = baseballNumber;
     }
 
-    public static BaseBallNumber generateBaseBallNumber(int baseballNumber) {
-        validateNumberRange(baseballNumber);
-        return new BaseBallNumber(baseballNumber);
-    }
-
-    private static void validateNumberRange(int baseballNumber) {
+    private void validateNumberRange(int baseballNumber) {
         if (baseballNumber < MIN_NUMBER || baseballNumber > MAX_NUMBER) {
             throw new IllegalArgumentException(INVALID_NUMBER);
         }

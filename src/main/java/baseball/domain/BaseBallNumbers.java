@@ -27,14 +27,14 @@ public class BaseBallNumbers {
         }
 
         List<BaseBallNumber> answerNumbers = randomNumbers.stream()
-            .map(BaseBallNumber::generateBaseBallNumber)
+            .map(BaseBallNumber::new)
             .collect(Collectors.toList());
         return new BaseBallNumbers(answerNumbers);
     }
 
     public static BaseBallNumbers generatePlayerNumbers(List<Integer> inputNumbers) {
         List<BaseBallNumber> playerNumbers = inputNumbers.stream()
-            .map(BaseBallNumber::generateBaseBallNumber)
+            .map(BaseBallNumber::new)
             .collect(Collectors.toList());
         return new BaseBallNumbers(playerNumbers);
     }
