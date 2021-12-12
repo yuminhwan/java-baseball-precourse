@@ -1,6 +1,6 @@
 package baseball.view;
 
-import baseball.dto.OutputDto;
+import baseball.dto.GameResultDto;
 
 public class OutputView {
     private static final int INITIAL_VALUE = 0;
@@ -11,16 +11,16 @@ public class OutputView {
     private OutputView() {
     }
 
-    public static void outputGameResult(OutputDto outputDto) {
-        String message = getMessage(outputDto);
+    public static void outputGameResult(GameResultDto gameResultDto) {
+        String message = getMessage(gameResultDto);
         System.out.println(message);
     }
 
-    public static String getMessage(OutputDto outputDto) {
-        if (isNothing(outputDto.getStrike(), outputDto.getBall())) {
+    public static String getMessage(GameResultDto gameResultDto) {
+        if (isNothing(gameResultDto.getStrike(), gameResultDto.getBall())) {
             return NOTHING;
         }
-        return ballAndStrike(outputDto.getStrike(), outputDto.getBall());
+        return ballAndStrike(gameResultDto.getStrike(), gameResultDto.getBall());
     }
 
     private static String ballAndStrike(int strike, int ball) {

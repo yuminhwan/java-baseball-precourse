@@ -5,7 +5,7 @@ import baseball.domain.Computer;
 import baseball.domain.GameResult;
 import baseball.domain.Player;
 import baseball.domain.Referee;
-import baseball.dto.OutputDto;
+import baseball.dto.GameResultDto;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 
@@ -26,7 +26,7 @@ public class Application {
         do {
             Player player = new Player(InputView.inputBaseBallNumbers());
             gameResult = referee.judgeResult(player.getPlayerNumbers());
-            OutputView.outputGameResult(OutputDto.from(gameResult));
+            OutputView.outputGameResult(GameResultDto.from(gameResult));
         } while (!gameResult.isAnswer());
     }
 
